@@ -1,0 +1,11 @@
+!pip install sweetviz
+import pandas as pd
+import sweetviz as sv
+data = pd.read_excel("D:\Youtube channel_Intercog\data.xlsx")
+data.info()
+my_report1 = sv.analyze(data)
+my_report1.show_html()
+my_report2 = sv.analyze([data, "MEDV"],target_feat='TAX')
+my_report2.show_html()
+my_report3 = sv.compare_intra(data, data["Location"] == "USA", ["USA", "INDIA"], 'TAX')
+my_report3.show_html()
